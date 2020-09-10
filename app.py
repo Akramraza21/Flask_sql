@@ -82,7 +82,7 @@ class AddPresence(Resource):
         if rollNo:
             data = Student.query.get(rollNo)
             added = Student(studentName=data.studentName,
-                            rollNo=data.rollNo, presence=data.presence, date=data.date)
+                            rollNo=data.rollNo, presence=data.presence, date=datetime.datetime.now())
             db.session.add(added)
             db.session.commit()
             return 'attendence is recorded'
